@@ -11,7 +11,6 @@ export class AppComponent {
   conversationDatas!:any;
   onConversationSelected(conversationData: any){
     this.isChatPlaceholder = false;
-     this.conversationDatas = this.conversationDatas;
-     console.log(conversationData);
+     this.conversationDatas = conversationData;
   }
 }

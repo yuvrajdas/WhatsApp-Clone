@@ -1,14 +1,20 @@
 
 <div id="container">
   <div id="header"></div>
-  <div id="body"></div>
+  <div id="body">
+    <div class="messages" [ngClass]="{me:item.me}" *ngFor="let item of conversationEvent.messages">
+      <div class="messageData">{{item.body}}
+        <div class="time">{{item.time}}</div>
+      </div>
+    </div>
+  </div>
   <div id="footer">
     <div id="emoji-attachment">
       <img src="assets/images/smile.svg" alt="">
       <img style="margin-top: 5px;" src="assets/images/attachment.svg" alt="">
     </div>
     <div id="textarea">
-      <input type="text" placeholder="Type a message"  (input)="writeMessage($event)">
+      <input type="text" placeholder="Type a message" (keyup.enter)="sendMessage($event)"  (input)="writeMessage($event)">
     </div>
     <div id="micIcon">
       <img src="assets/images/mic.svg" alt="" *ngIf="!isSendEnable">

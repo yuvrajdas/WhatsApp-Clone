@@ -34,11 +34,11 @@ export class SidebarComponent {
     messageCount:"5",
     newMessage:false,
     messages:[
-      {id:1,body:'hello world', time:"09:10 PM",me:true},
+      {id:1,body:'What are you doing', time:"09:10 PM",me:true},
       {id:2,body:'Whats up dude...', time:"09:10 PM",me:true},
-      {id:3,body:'how are you', time:"09:10 PM",me:false},
-      {id:4,body:'I am fine thank you', time:"09:10 PM",me:true},
-      {id:5,body:'What are you doing', time:"09:10 PM",me:false},
+      {id:3,body:'I am fine thank you', time:"09:10 PM",me:false},
+      {id:4,body:'how are you ', time:"09:10 PM",me:true},
+      {id:5,body:' hello world', time:"09:10 PM",me:false},
     ]
   },
   {
