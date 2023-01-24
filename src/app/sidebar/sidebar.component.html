@@ -1,0 +1,47 @@
+<div id="sidebar">
+    <div id="sidebar_header">
+        <div id="avatarContainer">
+            <img src="https://media.licdn.com/dms/image/C5103AQG2loOtHbYYLw/profile-displayphoto-shrink_800_800/0/1542551079007?e=2147483647&v=beta&t=i_7kahDOlnqUbcTIvRnEh_j3g4txNycHcM6o1TbUozQ" alt="">
+        </div>
+        <div id="actionsContainer">
+            <span><img style="width: 32px;" src="assets/images/contacts_group.svg" alt="Contacts"></span>
+            <span ><img src="assets/images/status.svg" alt="Status"></span>
+            <span><img src="assets/images/message_icon.svg" alt="Message"></span>
+            <span ><img src="assets/images/vertical_dotted_menu.svg" alt="Menu"></span>
+         </div>
+    </div>
+    <div id="searchBox">
+      <div id="searchSeparator">
+          <span id="searchIcon"><img src="assets/images/searchIcon.svg" alt="Search"/></span>
+          <input type="text" placeholder="Search or start new chat" />
+      </div>
+       <span>
+          <img src="assets/images/filter_icon.svg" alt="Filter">
+       </span>
+    </div>
+    <div id="sidebarContent">
+       <!-- <div class="noConversations">
+          All chats are archived
+       </div> -->
+
+       <div class="conversations" *ngFor="let conversation of messagesData" (click)="conversationClicked.emit(conversation)"   (click)="selectedChat(conversation)" [class.active]="conversation?.id === selectedConversation?.id">
+         <div class="picture">
+            <img src={{conversation?.picture}} alt="Profile">
+         </div>
+         <div class="content">
+            <div class="conversationHeader">
+               <div class="name">{{conversation?.name}}</div>
+               <div class="time">{{conversation?.time}}</div>
+            </div>
+            <div class="messageContainer">
+               <div class="message">
+                  <img *ngIf="conversation?.newMessage" src="assets/images/double_blue_tick.svg" alt="double-tick">
+                  <img *ngIf="!conversation?.newMessage" src="assets/images/double_tick.svg" alt="double-tick">
+                  <span> {{conversation?.message}}</span>
+               </div>
+               <div *ngIf="!conversation?.newMessage" class="messageCount">{{conversation.messageCount}}</div>
+            </div>
+         </div>
+       </div>
+    </div>
+ </div>

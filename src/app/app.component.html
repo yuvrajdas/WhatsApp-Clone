@@ -1,0 +1,19 @@
+<div id="background_header"></div>
+<div id="background_body"></div>
+
+<div id="chatContainer">
+  <app-sidebar (conversationClicked)="onConversationSelected($event)"></app-sidebar>
+  <div id="chat">
+    <div id="chatPlaceholder" *ngIf="isChatPlaceholder">
+      <img src="assets/images/no-messages.png" alt="">
+      <h2>WhatsApp Web</h2>
+      <div class="intructions">
+         <p>Send and receive messages without keeping your phone online.</p>
+         <p>Use WhatsApp on up to 4 linked devices and 1 phone at the same time.</p>
+      </div>
+      <p id="lock"> <img  src="assets/images/small-lock.svg" alt=""><span>End-to-end encrypted</span></p>
+      <div class="bottomBorder"></div>
+    </div>
+    <app-chat *ngIf="!isChatPlaceholder"></app-chat>
+  </div>
+</div>
