@@ -23,6 +23,15 @@ export class SidebarComponent {
       {id:3,body:'how are you', time:"09:10 PM",me:false},
       {id:4,body:'I am fine thank you', time:"09:10 PM",me:true},
       {id:5,body:'What are you doing', time:"09:10 PM",me:false},
+      {id:6,body:'In publishing and graphic design', time:"10:08 PM",me:false},
+      {id:7,body:'placeholder text commonly used to demonstrate', time:"01:10 PM",me:false},
+      {id:8,body:'I am fine thank you', time:"08:10 PM",me:true},
+      {id:9,body:'Whats up dude...', time:"09:10 PM",me:true},
+      {id:10,body:'how are you', time:"09:10 PM",me:false},
+      {id:11,body:'I am fine thank you', time:"09:10 PM",me:true},
+      {id:12,body:'placeholder text commonly used to demonstrate', time:"01:10 PM",me:false},
+      {id:13,body:'I am fine thank you', time:"08:10 PM",me:true},
+      {id:14,body:'What are you doing', time:"09:10 PM",me:false},
     ]
   },
   {

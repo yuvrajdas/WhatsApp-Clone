@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent {
-  @Input() conversationEvent!:any;
+  @Input() conversationEvent!: any;
   isSendEnable = false;
   constructor() { }
 
@@ -14,23 +14,26 @@ export class ChatComponent {
     console.log(this.conversationEvent);
 
   }
-  writeMessage(messageEvent:any){
-    if(messageEvent.target.value.length>0){
+  writeMessage(messageEvent: any) {
+    if (messageEvent.target.value.length > 0) {
       this.isSendEnable = true;
-    }else if(messageEvent.target.value.length<=0){
+    } else if (messageEvent.target.value.length <= 0) {
       this.isSendEnable = false;
     }
   }
-  sendMessage(messageData:any){
+  sendMessage(messageData: any) {
     let hours = new Date().getHours();
     let minute = new Date().getMinutes();
     let crrTime = `${hours}:${minute}`;
     let value = messageData.target.value;
-    this.conversationEvent.messages.push({
-      body:value, time:crrTime,me:true
-    })
+    let msgData = {
+      body: value, time: crrTime, me: true
+    }
 
+    this.conversationEvent.messages.unshift(msgData)
+    this.conversationEvent.message = value;
     messageData.target.value = '';
     this.isSendEnable = false;
+
   }
 }

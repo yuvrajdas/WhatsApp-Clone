@@ -1,6 +1,25 @@
 
 <div id="container">
-  <div id="header"></div>
+  <div id="header">
+    <div class="avatarSection">
+      <div class="picture">
+        <img src={{conversationEvent.picture}} alt=""/>
+      </div>
+      <div class="nameSection">
+        <div class="name">{{conversationEvent.name}}</div>
+        <div class="online">last seen today at 16:54</div>
+      </div>
+    </div>
+    <div class="avatarButtons">
+
+      <div class="common">
+        <img src="assets/images/search.svg" alt="Search-icon">
+      </div>
+      <div class="common">
+        <img src="assets/images/vertical_dotted_menu.svg" alt="Menu">
+      </div>
+    </div>
+  </div>
   <div id="body">
     <div class="messages" [ngClass]="{me:item.me}" *ngFor="let item of conversationEvent.messages">
       <div class="messageData">{{item.body}}
