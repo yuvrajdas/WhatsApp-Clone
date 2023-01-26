@@ -13,7 +13,7 @@
     <div id="searchBox">
       <div id="searchSeparator">
           <span id="searchIcon"><img src="assets/images/searchIcon.svg" alt="Search"/></span>
-          <input type="text" placeholder="Search or start new chat" />
+          <input [(ngModel)]="searchValue" type="text" placeholder="Search or start new chat" />
       </div>
        <span>
           <img src="assets/images/filter_icon.svg" alt="Filter">
@@ -24,7 +24,7 @@
           All chats are archived
        </div> -->
 
-       <div class="conversations" *ngFor="let conversation of messagesData" (click)="conversationClicked.emit(conversation)"   (click)="selectedChat(conversation)" [class.active]="conversation?.id === selectedConversation?.id">
+       <div class="conversations" *ngFor="let conversation of !searchValue?messagesData:filteredCoversations" (click)="conversationClicked.emit(conversation)"   (click)="selectedChat(conversation)" [class.active]="conversation?.id === selectedConversation?.id">
          <div class="picture">
             <img src={{conversation?.picture}} alt="Profile">
          </div>

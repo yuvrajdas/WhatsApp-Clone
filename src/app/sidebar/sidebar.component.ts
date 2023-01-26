@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SidebarComponent {
   constructor() { }
   selectedConversation!:any;
+  searchValue!:string;
   @Output() conversationClicked:EventEmitter<any> = new EventEmitter();
   messagesData = [{
     id:1,
@@ -158,10 +159,14 @@ export class SidebarComponent {
     messageCount:"13",
     newMessage:false
   }];
+
   selectedChat(conversation:any){
     this.selectedConversation = conversation;
     console.log(this.selectedConversation.id == conversation.id);
-
   }
-
+get filteredCoversations(){
+ return this.messagesData.filter((element)=>{
+    return element.name.toLowerCase().includes(this.searchValue.toLowerCase()) || element.message.toLowerCase().includes(this.searchValue.toLowerCase());
+  })
+}
 }

@@ -29,15 +29,16 @@
   </div>
   <div id="footer">
     <div id="emoji-attachment">
-      <img src="assets/images/smile.svg" alt="">
+      <img (click)="isEmojiPickerEnable = !isEmojiPickerEnable" src="assets/images/smile.svg"  alt="">
+      <emoji-mart (emojiClick)="addEmoji($event)" *ngIf="isEmojiPickerEnable" style="position:absolute;bottom:7.8%;" title="Pick your emoji…" emoji="point_up"></emoji-mart>
       <img style="margin-top: 5px;" src="assets/images/attachment.svg" alt="">
     </div>
     <div id="textarea">
-      <input type="text" placeholder="Type a message" (keyup.enter)="sendMessage($event)"  (input)="writeMessage($event)">
+      <input type="text" [(ngModel)]="msgText" #msg placeholder="Type a message" (keyup.enter)="sendMessage()"  (input)="writeMessage()">
     </div>
     <div id="micIcon">
       <img src="assets/images/mic.svg" alt="" *ngIf="!isSendEnable">
-      <img style="margin-top: 5px;" src="assets/images/send.svg" alt="" *ngIf="isSendEnable">
+      <img (click)="sendMessage()" style="margin-top: 5px;" src="assets/images/send.svg" alt="" *ngIf="isSendEnable">
     </div>
   </div>
 </div>

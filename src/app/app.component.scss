@@ -26,6 +26,7 @@
   }
   #chat {
     flex-grow: 1;
+    // min-width: 576px;
     background-color: #f0f2f5;
     #chatPlaceholder {
       display: flex;
@@ -75,5 +76,9 @@
     width: 656px;
     height: 100%;
     width: 100%;
+    min-width: 630px;
+    #chat{
+      min-width: 480px;
+    }
   }
 }
