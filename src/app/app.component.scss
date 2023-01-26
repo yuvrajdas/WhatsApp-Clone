@@ -26,9 +26,10 @@
   }
   #chat {
     flex-grow: 1;
-    // min-width: 576px;
     background-color: #f0f2f5;
     #chatPlaceholder {
+      width: 100%;
+      
       display: flex;
       justify-content: center;
       align-items: center;
@@ -41,7 +42,8 @@
         padding: 20px 0px;
       }
       img {
-        width: 650px;
+        // width: 650px;
+        width: 100%;
       }
       #lock {
         display: flex;
@@ -73,12 +75,16 @@
 @media only screen and (max-width: 748px) {
   #chatContainer {
     overflow: auto;
-    width: 656px;
+    width: 650px;
     height: 100%;
     width: 100%;
-    min-width: 630px;
-    #chat{
-      min-width: 480px;
+    min-width: 280px;
+    #chat {
+      #chatPlaceholder {
+        min-width: 320px;
+
+      }
+      min-width: 330px;
     }
   }
 }
