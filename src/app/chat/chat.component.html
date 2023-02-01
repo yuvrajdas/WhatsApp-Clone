@@ -21,10 +21,12 @@
     </div>
   </div>
   <div id="body">
-    <div class="messages" [ngClass]="{me:item.me}" *ngFor="let item of conversationEvent.messages">
+    <div #audioContainerRef class="messages" id="audioMSG" [ngClass]="{me:item.me}"
+      *ngFor="let item of conversationEvent.messages">
       <div class="messageData">{{item.body}}
         <div class="time">{{item.time}}</div>
       </div>
+
     </div>
   </div>
   <div id="footer">
@@ -37,7 +39,7 @@
       <input type="text" [(ngModel)]="msgText" #msg placeholder="Type a message" (keyup.enter)="sendMessage()"  (input)="writeMessage()">
     </div>
     <div id="micIcon">
-      <img src="assets/images/mic.svg" alt="" *ngIf="!isSendEnable">
+      <img src="assets/images/mic.svg" alt="" (mousedown)="listening()" (mouseup)="stopListening()" *ngIf="!isSendEnable">
       <img (click)="sendMessage()" style="margin-top: 5px;" src="assets/images/send.svg" alt="" *ngIf="isSendEnable">
     </div>
   </div>
